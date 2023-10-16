@@ -9,7 +9,7 @@ int _printf(const char *format, ...)
     int count = 0;
     int i = 0;
 
-    while (format[i] != '\0')
+    while (format && format[i] != '\0')
     {
         if (format[i] == '%')
         {
