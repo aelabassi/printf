@@ -12,6 +12,9 @@ va_start(args, format);
 
 int count = 0;
 
+if (format == NULL)
+	return (-1);
+
 while (format && *format != '\0')
 {
 if (*format == '%')
