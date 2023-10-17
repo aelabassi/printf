@@ -33,6 +33,11 @@ int handle_all(const char *format, va_list args)
 	count++;
 	break;
 	}
+	case 'd':
+	case 'i':
+	{
+		print_int(args);
+	}
 }
 return (count);
 }

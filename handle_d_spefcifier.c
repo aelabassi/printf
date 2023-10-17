@@ -10,7 +10,7 @@ num = n;
 
 if (last <0)
 {
-    _putchar(-_-);
+    _putchar('-');
     num = -num;
 n = -n;
 last = -last;
