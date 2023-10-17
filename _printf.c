@@ -34,4 +34,3 @@ va_end(args);
 
 return (count);
 }
-
