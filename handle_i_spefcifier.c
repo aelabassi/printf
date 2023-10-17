@@ -30,7 +30,7 @@ if (num > 0)
     _putchar(digit+'0');
     num = num - (digit * exp);
     exp = exp /10;
-    i++
+    i++;
    }
 }
 _putchar(last + '0');
