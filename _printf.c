@@ -1,52 +1,61 @@
 #include "main.h"
-
-
 int _printf(const char *format, ...)
 {
-va_list args;
-int count = 0;
+ va_list args;
+ va_start(args, format);
 
-va_start(args, format);
+ int count = 0;
 
-while (format && *format != '\0')
-{
-if (*format == '%')
-{
-format++;
+ while (format && *format != '\0')
+ {
+  if (*format == '%')
+  {
+   format++;
 
-switch (*format)
-{
-case 'c':
-{
-print_char(args);
-count++;
-break;
-}
-case 's':
-{
-count = print_string(args);
-break;
-}
-case '%':
-{
-_putchar('%');
-count++;
-break;
-}
-format++;
+   switch (*format)
+   {
+    case 'c':
+    {
+     /* Print a character */
+     int c = va_arg(args, int);
+     _putchar(c);
+     count++;
+     break;
+    }
+    case 's':
+    {
+     /* Print a string */
+     const char *s = va_arg(args, const char *);
+     while (*s != '\0')
+     {
+      _putchar(*s);
+      s++;
+      count++;
+     }
+     break;
+    }
+    case '%':
+    {
+     /* Print a '%' character */
+     _putchar('%');
+     count++;
+     break;
+    }
+   }
 
-}
-}
-else
-{
-_putchar(*format);
-count++;
-format++;
-}
+   format++;
+  }
+  else
+  {
+   /* Print normal characters */
+   _putchar(*format);
+   count++;
+   format++;
+  }
+ }
 
-}
-va_end(args);
-return (count);
-}
+ va_end(args);
 
+ return (count);
+}
 
