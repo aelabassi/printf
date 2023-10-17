@@ -7,15 +7,14 @@ int _printf(const char *format, ...)
     va_start(args, format);
 
     int count = 0;
-    int i = 0;
 
-    while (format && format[i] != '\0')
+    while (format && *format != '\0')
     {
-        if (format[i] == '%')
+        if (*format == '%')
         {
-            i++; 
+            format++;
 
-            switch(format[i])
+            switch(*format)
             {
                 case 'c':
                 {
@@ -44,6 +43,8 @@ int _printf(const char *format, ...)
                     count++;
                     break;
                 }
+                format++;
+
             }
         }
         else
@@ -51,9 +52,9 @@ int _printf(const char *format, ...)
             // Print normal characters
             _putchar(*format);
             count++;
+            format++;
         }
 
-        i++;
     }
 
     va_end(args);
