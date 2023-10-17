@@ -17,21 +17,14 @@ int _printf(const char *format, ...)
     case 'c':
     {
      /* Print a character */
-     int c = va_arg(args, int);
-     _putchar(c);
+     print_char(args);
      count++;
      break;
     }
     case 's':
     {
      /* Print a string */
-     const char *s = va_arg(args, const char *);
-     while (*s != '\0')
-     {
-      _putchar(*s);
-      s++;
-      count++;
-     }
+    count = print_string(args);
      break;
     }
     case '%':
