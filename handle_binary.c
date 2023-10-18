@@ -1,6 +1,10 @@
 #include "main.h"
 /**
- * print_binary - Prints the binary representation of a number
+ * print_binary - Prints the binary representation of an unsigned integer
+ * @args: Argument list containing the unsigned integer to be printed
+ * @n: Number of bits to be printed
+ *
+ * Return: Number of characters printed
  */
 int print_binary(va_list args, int n)
 {
@@ -22,15 +26,18 @@ int print_binary(va_list args, int n)
 	i = 0;
 	sum = 0;
 	count = 0;
+
 	while (i < 32)
 	{
 		sum += a[i];
+
 		if (sum || i == 31)
 		{
 			char z = '0' + a[i];
 			_putchar(z);
 			count++;
 		}
+
 		i++;
 	}
 
