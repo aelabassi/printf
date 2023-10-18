@@ -36,7 +36,11 @@ int handle_all(const char *format, va_list args)
 	case 'd':
 	case 'i':
 	{
-		print_int(args);
+		count = print_int(args);
+	}
+	case 'b':
+	{
+		count = print_binary(args, count);
 	}
 }
 return (count);
