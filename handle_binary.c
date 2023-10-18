@@ -2,46 +2,28 @@
 /**
  * print_binary - Prints the binary representation of a number
  */
-void print_binary(unsigned int num)
+int print_binary(va_list types, int n)
 {
- if (num > 1)
-  print_binary(num / 2);
- putchar('0' + (num % 2));
-}
-int _printf(const char *format, ...)
-{
- va_list args;
- int chars = 0;
- const char *ptr;
+    unsigned int x, i, sum;
+    unsigned int a[32];
+    int count;
 
- va_start(args, format);
-
- for (ptr = format; *ptr != '\0'; ptr++)
- {
-  if (*ptr != '%')
-  {
-   putchar(*ptr);
-   chars++;
-  }
-  else
-  {
-   ptr++; /* Move past the '%' */
-   if (*ptr == 'b')
-   {
-    unsigned int num = va_arg(args, unsigned int);
-    print_binary(num);
-    chars += sizeof(unsigned int) * 8;
-   }
-   else
-   {
-    putchar('%');
-    putchar(*ptr);
-    chars += 2;
-   }
-  }
- }
-
- va_end(args);
-
- return chars;
+    x = 32768; /* (2 ^ 15) */
+    a[0] = n / x;
+    for (i = 1; i < 32; i++)
+    {
+        x /= 2;
+        a[i] = (n / x) % 2;
+    }
+    for (i = 0, sum = 0, count = 0; i < 32; i++)
+    {
+        sum += a[i];
+        if (sum || i == 31)
+        {
+            char z = '0' + a[i];
+            printf("%c", z);
+            count++;
+        }
+    }
+    return count;
 }
