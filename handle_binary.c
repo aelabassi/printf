@@ -2,7 +2,7 @@
 /**
  * print_binary - Prints the binary representation of a number
  */
-int print_binary(va_list types, int n)
+void print_binary(va_list types, int n)
 {
     unsigned int x, i, sum;
     unsigned int a[32];
