@@ -6,7 +6,7 @@
  *
  * Return: Number of characters printed
  */
-int print_binary(va_list, int n)
+int print_binary(int n)
 {
 	unsigned int x, i, sum;
 	unsigned int a[32];
