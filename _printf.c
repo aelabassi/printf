@@ -12,7 +12,7 @@ va_start(args, format);
 
 int count = 0;
 
-if (format == NULL)
+if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 	return (-1);
 
 while (format && *format != '\0')

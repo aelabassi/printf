@@ -37,10 +37,12 @@ int handle_all(const char *format, va_list args)
 	case 'i':
 	{
 		count = print_int(args);
+		break;
 	}
 	case 'b':
 	{
-		count = print_binary(args, count);
+		count = print_binary(count);
+		break;
 	}
 }
 return (count);
