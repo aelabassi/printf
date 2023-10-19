@@ -12,5 +12,5 @@ int handle_all(const char *format, va_list args);
 int _printf(const char *format, ...);
 int print_int(va_list args);
 int print_dec(va_list args);
-int print_binary(va_list args, int n);
+int print_binary(va_list, int n);
 #endif
