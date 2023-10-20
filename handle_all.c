@@ -16,7 +16,7 @@ int handle_all(const char *format, va_list args)
 	case 'c':
 	{
      /* Print a character */
-	print_char(args);
+	_putchar(va_arg(args, int));
 	count++;
 	break;
 	}
